@@ -1,0 +1,106 @@
+﻿@model Business.Entities.RideOffer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Offer Details</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            @*<dt>
+                    @Html.DisplayNameFor(model => model.Id)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Id)
+                </dd>*@
+
+            <dt>
+                @Html.DisplayNameFor(model => model.User.UserName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.User.UserName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.OfferDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.OfferDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.RideDate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.RideDate)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Destiny)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Destiny)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Origin)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Origin)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Comment)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Comment)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Seats)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Seats)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AvailableSeats)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AvailableSeats)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+        </dl>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="button" value="Request Ride" onclick="location.href='@Url.Action("RequestRide", "Requests", new { id = Model.Id })'" />
+            </div>
+        </div>
+    </div>        
+}
+
+<p>
+    @Html.ActionLink("Back to Offers", "List")
+</p>
+

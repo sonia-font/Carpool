@@ -1,0 +1,66 @@
+﻿@using Business.Entities
+@model IEnumerable<Business.Entities.RideRequest>
+@{
+    ViewBag.Title = "My Requests";
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.RideOffer.User.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RideOffer.OfferDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RideOffer.Destiny)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RideOffer.Origin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>        
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.RideOffer.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RideOffer.OfferDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RideOffer.Destiny)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RideOffer.Origin)
+            </td>  
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td> 
+            <td>
+                <div id="changes" style="@(item.Status == RequestStatus.OfferUpdated ? "display: normal" : "display: none")">  
+                    <input type="button" value="Accept Changes" onclick="location.href='@Url.Action("AcceptChanges", "Requests", new { requestId = item.Id })'" />
+                    <input type="button" value="Reject Changes" onclick="location.href='@Url.Action("RejectChanges", "Requests", new { offerId = item.RideOffer.Id, requestId = item.Id })'" />            
+                </div> 
+            </td>    
+            <td>
+                @Html.ActionLink("Cancel Request", "Cancel", new { offerId = item.RideOffer.Id, requestId = item.Id })                
+            </td>
+        </tr>
+    }
+
+</table>

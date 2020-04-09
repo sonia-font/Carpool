@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Business.Entities.RideOffer>
+@{
+    ViewBag.Title = "My Offers";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<p>
+    @Html.ActionLink("Post new offer", "Post")
+</p>
+
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OfferDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RideDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Destiny)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Origin)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Comment)
+            </th>*@
+        @*<th>
+                @Html.DisplayNameFor(model => model.Seats)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.AvailableSeats)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.User.UserName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OfferDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RideDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destiny)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Origin)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Comment)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Seats)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.AvailableSeats)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("View My Offer", "ViewMyOffer", new { id = item.Id })                
+            </td>
+        </tr>
+    }
+
+</table>
+

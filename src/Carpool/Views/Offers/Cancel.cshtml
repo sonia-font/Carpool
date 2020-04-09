@@ -1,0 +1,59 @@
+﻿@model Business.Entities.RideOffer
+
+@{
+    ViewBag.Title = "Cancel Offer";
+}
+
+<h2>Cancel Offer</h2>
+
+<h3>Are you sure you want to cancel this offer?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RideDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RideDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Destiny)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Destiny)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Origin)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Origin)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Cancel Offer" class="btn btn-default" /> <br />
+            </div>            
+        </div>
+        <div>
+            @Html.ActionLink("Back to Offer", "ViewMyOffer", new { id = Model.Id })
+        </div>
+    }
+</div>
