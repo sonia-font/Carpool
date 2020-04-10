@@ -16,21 +16,19 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Carpool", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <img src="~/Content/images/prueba_logo.png" width="50" height="50" alt="alt text" />
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Offers", "List", "Offers")</li>
                     <li>@Html.ActionLink("My Offers", "MyList", "Offers")</li>
                     <li>@Html.ActionLink("My Requests", "MyList", "Requests")</li>
-                    <li>@Html.ActionLink("My Notifications", "MyList", "Notifications")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("My Notifications", "MyList", "Notifications")</li>                    
                 </ul>
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content">        
         @RenderBody()
         <hr />
         <footer>
